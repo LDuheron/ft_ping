@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ping.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 17:53:40 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/22 17:30:23 by lduheron         ###   ########.fr       */
+/*   Created: 2024/11/22 17:25:28 by lduheron          #+#    #+#             */
+/*   Updated: 2024/11/22 17:29:17 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ping.h"
+#ifndef FT_PING_H
+# define FT_PING_H
 
-int	main(int arg, char **argv)
-{
-	return (SUCCESS);
-}
+# include <unistd.h>
+# include <stdio.h>
+# include <arpa/inet.h>
+# include <errno.h>
+
+# define ERROR 0
+# define SUCCESS 1
+
+// main.c
+int	main(int argc, char **argv);
+
+#endif

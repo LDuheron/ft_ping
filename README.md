@@ -23,8 +23,13 @@ ping <options> <destination>
 
 ## What is ping ?
 
-Man :
-ping - send ICMP ECHO_REQUEST to network hosts
+From man :
+***ping** - send ICMP ECHO_REQUEST to network hosts*
+
+*Ping uses the ICMP protocol's mandatory ECHO_REQUEST datagram to elicit an ICMP ECHO_RESPONSE from a host or gateway. ECHO_REQUEST datagrams (“pings”) have an IP and ICMP header, followed by a struct timeval and then an arbitrary number of “pad” bytes used to fill out the packet.*
+
+Schema from GeeksForGeeks
+![Ping_schema_from_GeekForGeeks](/readme_img/ping_schema.png)
 
 When executing a ping, an ICMP “echo request” is sent to the target device. If the target device accept the request, it responds with an “echo reply”.
 

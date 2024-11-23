@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:25:28 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/22 17:29:17 by lduheron         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:44:46 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <arpa/inet.h>
 # include <errno.h>
+# include <netinet/in.h>
 
 # define ERROR 0
 # define SUCCESS 1

@@ -26,9 +26,13 @@ ping <options> <destination>
 Man :
 ping - send ICMP ECHO_REQUEST to network hosts
 
+When executing a ping, an ICMP “echo request” is sent to the target device. If the target device accept the request, it responds with an “echo reply”.
+
+Ping tests the connection speed between two devices and precisely measures the time it takes for a data packet to reach its destination and return to the sender. 
+
 ## ICMP protocol
 
-Ping is based on the Internet Control Message Protocol. When executing a ping, an ICMP “echo request” is sent to the target device. If the target device accept the request, it responds with an “echo reply”.
+Ping is based on the Internet Control Message Protocol (ICMP). This protocol is used by devices on a network to detect communication issues within the network. ICMP is a connextionless protocol, meaning it doesn't require establishing a connection before transmitting data.
 
 ## Output
 
@@ -54,3 +58,5 @@ ping google.com
 
 - Ping man : http://www.man-linux-magique.net/man8/ping.html
 - arpa/inet.h header for internet operations : https://pubs.opengroup.org/onlinepubs/7908799/xns/arpainet.h.html
+- netinet/in.h header : https://pubs.opengroup.org/onlinepubs/7908799/xns/netinetin.h.html
+- ICMP protocol info : https://www.cloudflare.com/fr-fr/learning/ddos/glossary/internet-control-message-protocol-icmp/

@@ -11,6 +11,7 @@
 - [What is ping ?](#what-is-ping-?)
 - [ICMP protocol](#icmp-protocol)
 - [Raw sockets](#raw-sockets)
+- [Checksum](#checksum)
 - [Output](#output)
 - [Options](#options)
 - [Ressources](#ressources)
@@ -45,6 +46,14 @@ Ping is based on the Internet Control Message Protocol (ICMP). This protocol is 
 ## Raw sockets
 
 Raw sockets allows to directly interact with Internet Protocol (IP) packets.
+
+## Checksum
+
+Checksum is a value calculated from a data set to verify its integrity during transmission or storage.
+
+A checksum is generated both before and after the data is sent. The two checksums are then compared: if they match, the data is considered intact, otherwise it has been corrupted or altered. 
+
+*** Insert picture of my checksum function ***
 
 ## Output
 

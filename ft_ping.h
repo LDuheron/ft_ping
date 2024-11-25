@@ -15,14 +15,29 @@
 
 # include <arpa/inet.h>
 # include <errno.h>
+# include <netinet/in.h>
 # include <netinet/ip_icmp.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <sys/socket.h>
 # include <sys/time.h>
+# include <sys/types.h>
 # include <unistd.h>
 
 # define ERROR 0
 # define SUCCESS 1
+
+typedef struct s_icmp_header
+{
+	int type;  // uint 8 ?
+	int code;
+	int id;
+	int checksum;
+	int sequence;
+	// int time;
+	// int ttl; 
+} t_icmp_header;
+
 
 // main.c
 int	main(int argc, char **argv);

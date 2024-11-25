@@ -10,14 +10,17 @@
 - [Usage](#usage)
 - [What is ping ?](#what-is-ping-?)
 - [ICMP protocol](#icmp-protocol)
+- [Raw sockets](#raw-sockets)
 - [Output](#output)
 - [Options](#options)
 - [Ressources](#ressources)
 
 ## Usage
 
+⚠️ The **ft_ping** program involves the **manipulation of raw sockets.** Ensure that you have the **necessary permissions** to handle raw sockets on your device before launching it. Alternatively, consider running it in a **virtual machine.**
+
 ```
-ping <options> <destination>
+ft ping <options> <destination>
 
 ```
 
@@ -38,6 +41,10 @@ Ping tests the connection speed between two devices and precisely measures the t
 ## ICMP protocol
 
 Ping is based on the Internet Control Message Protocol (ICMP). This protocol is used by devices on a network to detect communication issues within the network. ICMP is a connextionless protocol, meaning it doesn't require establishing a connection before transmitting data.
+
+## Raw sockets
+
+Raw sockets allows to directly interact with Internet Protocol (IP) packets.
 
 ## Output
 

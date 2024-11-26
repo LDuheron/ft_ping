@@ -12,16 +12,24 @@
 
 #include "./ft_ping.h"
 
-// // // Need to code a checksum
-// uint8_t checksum()
-// {
-// 	uint8_t	sum;
-// 	// divide data as a sequence of 2byte
-// 	// if data lenght is odd, padding byte of 0
-// 	// add each word of sequence to sum
-// 	// overflow ???
-// 	return(sum);
-// }
+// // Need to code a checksum
+// IPV4 === INCLURE LE PSEUDO HEADER
+uint16_t checksum()
+{
+	uint16_t	sum;
+
+	sum = 0;
+	len = strlen();
+	// divide data as a sequence of 2byte
+	// if data lenght is odd, padding byte of 0
+	// add each word of sequence to sum
+	// while ()
+	// {
+	// 	sum += ; 
+	// }
+	// overflow ???
+	return(sum);
+}
 
 void	init_icmp_data(t_icmp_header *icmp)
 {

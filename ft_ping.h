@@ -29,10 +29,10 @@
 
 typedef struct s_icmp_header
 {
-	int type;  // uint 8 ?
-	int code;
+	uint8_t type;  // uint 8 ?
+	uint8_t code;
+	int16_t checksum;
 	int id;
-	int checksum;
 	int sequence;
 	// int time;
 	// int ttl; 

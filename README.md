@@ -41,7 +41,7 @@ Ping tests the connection speed between two devices and precisely measures the t
 
 ## ICMP protocol
 
-Ping is based on the Internet Control Message Protocol (ICMP). This protocol is used by devices on a network to detect communication issues within the network. ICMP is a connextionless protocol, meaning it doesn't require establishing a connection before transmitting data.
+Ping is based on the Internet Control Message Protocol (ICMP). This protocol is used by devices on a network to detect communication issues within the network. ICMP is a connectionless protocol, meaning it doesn't require establishing a connection before transmitting data.
 
 ## Raw sockets
 

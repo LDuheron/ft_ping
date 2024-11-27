@@ -27,13 +27,16 @@
 # define ERROR 0
 # define SUCCESS 1
 
+# define ECHO_REQUEST 8
+
 typedef struct s_icmp_header
 {
 	uint8_t type;  // uint 8 ?
 	uint8_t code;
 	int16_t checksum;
-	int id;
-	int sequence;
+	uint16_t id;
+	char sequence;
+
 	// int time;
 	// int ttl; 
 } t_icmp_header;

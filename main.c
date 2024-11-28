@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:53:40 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/28 13:35:08 by lisa             ###   ########.fr       */
+/*   Updated: 2024/11/28 14:28:26 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,27 @@ int	main(int argc, char **argv)
 	}
 
 	t_icmp_header	icmp;
+	size_t start_time = get_time();
 	init_icmp_data(&icmp);
-	uint16_t first_checksum = checksum((void*)&icmp, sizeof(icmp));
-	printf("\nsum = %hu \n", first_checksum);
+	// uint16_t first_checksum = checksum((void*)&icmp, sizeof(icmp));
+	int sockfd;
 
-	// int sockfd;
+	sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
+	if (sockfd < 0)
+	{
+		perror("socket creation failed.\n");
+		exit(ERROR);
+	}
 
-	// sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
-	// if (sockfd < 0)
+	// send_icmp(sockfd, &icmp, sizeof(icmp), MSG_WAITALL);
+	// while(LOOP)
 	// {
-	// 	perror("socket creation failed.\n");
-	// 	exit(ERROR);
+	// 	receive_icmp(sockfd, &icmp, sizeof(icmp), MSG_WAITALL);
 	// }
-	// printf("Successfully created raw socket\n");
-	// close(sockfd);
-	// return (SUCCESS);
+
+	size_t time = get_time() - start_time;
+	size_t ttl = 0;
+	print_output(argv[0], icmp.sequence, ttl, time);
+	close(sockfd);
+	return (SUCCESS);
 }

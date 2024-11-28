@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:25:28 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/28 13:45:41 by lisa             ###   ########.fr       */
+/*   Updated: 2024/11/28 14:26:07 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define ERROR 0
 # define SUCCESS 1
 
+# define LOOP 42
+
 # define ECHO_REQUEST 8
 
 typedef struct s_icmp_header
@@ -36,18 +38,22 @@ typedef struct s_icmp_header
 	int16_t checksum;
 	uint16_t id;
 	char sequence;
-
-	// int time;
-	// int ttl; 
 } t_icmp_header;
+
+
+// struct for output ? 
 
 // main.c
 int	main(int argc, char **argv);
 
 // socket_management.c
+void    send_icmp(int socket, const void *buffer, size_t length, int flags);
+void    receive_icmp(int socket, const void *buffer, size_t length, int flags);
 
 // icmp_management.c
 void	init_icmp_data(t_icmp_header *icmp);
 uint16_t checksum(void* icmp, size_t len);
+size_t	get_time(void);
+void	print_output(char* destination, char seq, size_t ttl, size_t time);
 
 #endif

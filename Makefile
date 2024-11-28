@@ -6,6 +6,8 @@ NAME := ft_ping
 ####### INGREDIENTS - BUILD VARIABLES #######
 
 SRCS += main.c
+SRCS += icmp_management.c
+SRCS += socket_management.c
 
 OBJS	:= $(SRCS:.c=.o)  # object files .o
 

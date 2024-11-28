@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ping.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:25:28 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/23 16:31:47 by lduheron         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:45:41 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,13 @@ typedef struct s_icmp_header
 	// int ttl; 
 } t_icmp_header;
 
-
 // main.c
 int	main(int argc, char **argv);
+
+// socket_management.c
+
+// icmp_management.c
+void	init_icmp_data(t_icmp_header *icmp);
+uint16_t checksum(void* icmp, size_t len);
 
 #endif

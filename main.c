@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:53:40 by lduheron          #+#    #+#             */
-/*   Updated: 2024/11/28 14:28:26 by lisa             ###   ########.fr       */
+/*   Updated: 2024/11/28 15:20:01 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc != 2 || !argv[0])
+	if (argc != 2)
 	{
 		perror("Usage is ft_ping <destination>");
 	}
 
-	t_icmp_header	icmp;
-	size_t start_time = get_time();
+	struct icmphdr	icmp_hdr;
 	init_icmp_data(&icmp);
-	// uint16_t first_checksum = checksum((void*)&icmp, sizeof(icmp));
+
+	size_t start_time = get_time();
+
 	int sockfd;
+	struct sockaddr_in sockaddr;
+
+	sockaddr.sin_family = AF_INET;
+	sockaddr.sin_port = htons();
 
 	sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
 	if (sockfd < 0)
@@ -32,10 +37,11 @@ int	main(int argc, char **argv)
 		exit(ERROR);
 	}
 
+	bind(sockfd, (struct sockaddr*)sockaddr, sizeof(sockaddr));
 	// send_icmp(sockfd, &icmp, sizeof(icmp), MSG_WAITALL);
 	// while(LOOP)
 	// {
-	// 	receive_icmp(sockfd, &icmp, sizeof(icmp), MSG_WAITALL);
+
 	// }
 
 	size_t time = get_time() - start_time;

@@ -81,3 +81,4 @@ ping google.com
 - arpa/inet.h header for internet operations : https://pubs.opengroup.org/onlinepubs/7908799/xns/arpainet.h.html
 - netinet/in.h header : https://pubs.opengroup.org/onlinepubs/7908799/xns/netinetin.h.html
 - ICMP protocol info : https://www.cloudflare.com/fr-fr/learning/ddos/glossary/internet-control-message-protocol-icmp/
+- sockaddr_in : https://www.gta.ufrj.br/ensino/eel878/sockets/sockaddr_inman.html 

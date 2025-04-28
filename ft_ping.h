@@ -24,6 +24,10 @@
 # include <sys/types.h>
 # include <unistd.h>
 
+# define ON 1
+# define OFF 0
+# define DEBUG ON
+
 # define ERROR 0
 # define SUCCESS 1
 
@@ -45,15 +49,18 @@ typedef struct s_ping_data
 
 // main.c
 int	main(int argc, char **argv);
+void 	print_debug_messages(char *message, int toggle);
 
-// socket_management.c
+
+// // socket_management.c
 void    send_icmp(int socket, const void *buffer, size_t length, int flags);
-void    receive_icmp(int socket, const void *buffer, size_t length, int flags);
+// void    receive_icmp(int socket, const void *buffer, size_t length, int flags);
 
-// icmp_management.c
-void	init_icmp_data(t_icmp_header *icmp);
-uint16_t checksum(uint16_t* icmp_hdr, size_t len);
+// // icmp_management.c
+void	init_icmp_data(struct icmphdr *icmp_hdr);
+unsigned short checksum(void *b, int len);
+// uint16_t checksum(uint16_t* icmp_hdr, size_t len);
 size_t	get_time(void);
-void	print_output(char* destination, char seq, size_t ttl, size_t time);
+// void	print_output(char* destination, char seq, size_t ttl, size_t time);
 
 #endif

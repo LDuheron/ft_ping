@@ -8,6 +8,7 @@ NAME := ft_ping
 SRCS += main.c
 SRCS += icmp_management.c
 SRCS += socket_management.c
+SRCS += utils.c
 
 OBJS	:= $(SRCS:.c=.o)  # object files .o
 

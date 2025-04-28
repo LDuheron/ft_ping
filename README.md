@@ -21,7 +21,8 @@
 ⚠️ The **ft_ping** program involves the **manipulation of raw sockets.** Ensure that you have the **necessary permissions** to handle raw sockets on your device before launching it. Alternatively, consider running it in a **virtual machine.**
 
 ```
-ft ping <options> <destination>
+make
+./ft_ping <options> <destination>
 
 ```
 

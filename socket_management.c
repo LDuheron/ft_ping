@@ -12,7 +12,6 @@
 
 #include "./ft_ping.h"
 
-// socket, buffer, length, flags
 void    send_icmp(int socket, const void *buffer, size_t length, int flags)
 {
     int result;
@@ -27,16 +26,16 @@ void    send_icmp(int socket, const void *buffer, size_t length, int flags)
     }
 }
 
-void    receive_icmp(int socket, const void *buffer, size_t length, int flags)
-{
-    int result;
+// void    receive_icmp(int socket, const void *buffer, size_t length, int flags)
+// {
+//     int result;
 
-    result = 0;
-    result = recv(socket, &buffer, length, flags);
-    if (result < 0)
-    {
-        perror("Failed to receive packet.");
-        close(socket);
-        exit(ERROR);
-    }
-}
+//     result = 0;
+//     result = recv(socket, &buffer, length, flags);
+//     if (result < 0)
+//     {
+//         perror("Failed to receive packet.");
+//         close(socket);
+//         exit(ERROR);
+//     }
+// }

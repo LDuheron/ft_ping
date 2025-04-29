@@ -12,6 +12,9 @@
 
 #include "./ft_ping.h"
 
+
+	// Should work with an IP address or with a full name.
+// Arg : 
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
@@ -19,16 +22,23 @@ int	main(int argc, char **argv)
 		perror("Usage is ft_ping <destination>");
 	}
 
-	// retrieve IP adress by name 
-	struct addrinfo *target_addr_info;
-	int res = getaddrinfo(NULL, argv[1], 0, &target_addr_info);
-	if (res < 0)
-	{
-		perror("addrinfo creation failed.\n");
-		exit(ERROR);
-	}
 
 
+	// Retrieve IP adress by name 
+	// struct addrinfo hints, *res, *p;
+	// memset(&hints, 0, sizeof(hints));
+	// hints.ai_family = AF_UNSPEC;
+	// hints.ai_socktype = SOCK_STREAM;
+	// int res = getaddrinfo(argv[1], NULL, &hints, &res);
+	// if (res != 0)
+	// {
+	// 	perror("addrinfo creation failed.\n");
+	// 	exit(ERROR);
+	// }
+	// print_debug_messages("DNS succesfully translated.", DEBUG);
+	// printf("IPV v4 = %i", &res.);
+
+ // basically i habve tocode afuncetiunthat jsut translate dns o p? can  
 
 	// Create a raw socket
 	int sockfd;

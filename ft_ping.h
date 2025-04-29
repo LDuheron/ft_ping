@@ -23,6 +23,8 @@
 # include <sys/time.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <netdb.h>
+
 
 # define ON 1
 # define OFF 0
@@ -49,12 +51,12 @@ typedef struct s_ping_data
 
 // main.c
 int	main(int argc, char **argv);
-void 	print_debug_messages(char *message, int toggle);
+void print_debug_messages(char *message, int toggle);
 
 
 // // socket_management.c
-void    send_icmp(int socket, const void *buffer, size_t length, int flags);
-// void    receive_icmp(int socket, const void *buffer, size_t length, int flags);
+void    send_icmp(int sockfd, struct icmphdr icmp_hdr, struct sockaddr_in sock_addr);
+void    receive_icmp(int sockfd, struct sockaddr_in sock_addr);
 
 // // icmp_management.c
 void	init_icmp_data(struct icmphdr *icmp_hdr);

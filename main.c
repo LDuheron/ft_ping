@@ -14,17 +14,24 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argv;
-
 	if (argc != 2)
 	{
 		perror("Usage is ft_ping <destination>");
 	}
 
+	// retrieve IP adress by name 
+	struct addrinfo *target_addr_info;
+	int res = getaddrinfo(NULL, argv[1], 0, &target_addr_info);
+	if (res < 0)
+	{
+		perror("addrinfo creation failed.\n");
+		exit(ERROR);
+	}
+
+
 
 	// Create a raw socket
 	int sockfd;
-
 	sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
 	if (sockfd < 0)
 	{
@@ -34,38 +41,30 @@ int	main(int argc, char **argv)
 	print_debug_messages("Raw socket succesfully created.", DEBUG);
 
 
+
 	// Initialize icmp header
 	struct icmphdr	icmp_hdr;
-
 	init_icmp_data(&icmp_hdr);
 	print_debug_messages("Icmp header succesfully created.", DEBUG);
 
+
+
 	// Initialize the destination socket
 	struct sockaddr_in sock_addr;
-
 	sock_addr.sin_family = AF_INET;
 	sock_addr.sin_port = htons(0);
 
 
+
 	// Send package 
 	size_t start_time = get_time();
-	send_icmp(sockfd, &icmp_hdr, sizeof(icmp_hdr), MSG_WAITALL);
-	    int result;
+	send_icmp(sockfd, icmp_hdr, sock_addr);
+	while(42)
+	{
+		receive_icmp(sockfd, sock_addr);
+		print_debug_messages("call to receive icmp.", DEBUG);
+	}
 
-    result = 0;
-    result = sendto(sockfd, &icmp_hdr, sizeof(icmp_hdr), MSG_WAITALL, (struct sockaddr *)sock_addr, sizeof(*sock_addr));
-    if (result < 0)
-    {
-        perror("Failed to send packet.");
-        close(sockfd);
-        exit(ERROR);
-    }
-	print_debug_messages("Packet succesfully sent.", DEBUG);
-
-	// while(LOOP)
-	// {
-
-	// }
 
 
 	size_t time = get_time() - start_time;

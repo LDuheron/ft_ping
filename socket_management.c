@@ -12,30 +12,36 @@
 
 #include "./ft_ping.h"
 
-void    send_icmp(int socket, const void *buffer, size_t length, int flags)
+void    send_icmp(int sockfd, struct icmphdr icmp_hdr, struct sockaddr_in sock_addr)
 {
-    int result;
+	int result;
 
     result = 0;
-    result = sendto(socket, &buffer, length, flags);
+    result = sendto(sockfd, &icmp_hdr, sizeof(icmp_hdr), MSG_WAITALL, (struct sockaddr*)&sock_addr, sizeof(sock_addr));
     if (result < 0)
     {
         perror("Failed to send packet.");
-        close(socket);
+        close(sockfd);
         exit(ERROR);
     }
+	print_debug_messages("Packet succesfully sent.", DEBUG);
 }
 
-// void    receive_icmp(int socket, const void *buffer, size_t length, int flags)
-// {
-//     int result;
+void    receive_icmp(int sockfd, struct sockaddr_in sock_addr)
+{
 
-//     result = 0;
-//     result = recv(socket, &buffer, length, flags);
-//     if (result < 0)
-//     {
-//         perror("Failed to receive packet.");
-//         close(socket);
-//         exit(ERROR);
-//     }
-// }
+    struct icmphdr rbuffer;
+    int result;
+    socklen_t sock_addr_len= sizeof(sock_addr);
+    result = 0;
+    result = recvfrom(sockfd, &rbuffer, sizeof(rbuffer), 0, (struct sockaddr*)&sock_addr, &(sock_addr_len));
+    if (result < 0)
+    {
+        perror("Failed to receive packet.");
+        close(sockfd);
+        exit(ERROR);
+    }
+	print_debug_messages("Packet succesfully received.", DEBUG);
+	printf("%hhu", rbuffer.type);
+    printf("\n");
+}
